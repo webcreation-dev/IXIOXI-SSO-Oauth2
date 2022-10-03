@@ -268,14 +268,14 @@ body {
 
 .btn-nav:hover {
 	color: #FFFFFF;
-	background: #21bf73;
-  border: 2px solid #21bf73 !important;
+	background:  #3498db;
+  border: 2px solid  #3498db !important;
 }
 
 .btn-nav:focus, .btn-nav:active {
-	background: #21bf73;
+	background:  #3498db;
 	color: #FFFFFF;
-  border: 2px solid #21bf73 !important;
+  border: 2px solid  #3498db !important;
 }
 
 /*---- Navbar Alt -----*/

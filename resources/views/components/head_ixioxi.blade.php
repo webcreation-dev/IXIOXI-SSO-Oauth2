@@ -12,8 +12,27 @@
     <!-- Page Title  -->
     <title>IXIOXI.COM | Nous transformons les idées en technologies utilisatbles et accessibles à tous</title>
     <!-- StyleSheets  -->
-    <link rel="stylesheet" href="{{ asset('demo/assets/css/dashlite.css?ver=3.0.0') }}./">
-    {{-- <link id="skin-default" rel="stylesheet" href="{{ asset('demo/assets/css/theme.css?ver=3.0.0') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('demo/assets/css/dashlite.css?ver=3.0.0') }}">
+    <link id="skin-default" rel="stylesheet" href="{{ asset('demo/assets/css/theme.css?ver=3.0.0') }}">
+
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script>
+        $(document).ready(function () {
+
+            jQuery('#professionnel').change(function() {
+                if ($(this).prop('checked')) {
+                    $('.society').hide();
+                }
+            });
+
+            jQuery('#entreprise').change(function() {
+                if ($(this).prop('checked')) {
+                    $('.society').show();
+                }
+            });
+        });
+    </script>
+   
     <style>
         .disable {
             pointer-events: none;

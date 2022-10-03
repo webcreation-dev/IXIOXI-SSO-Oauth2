@@ -35,7 +35,7 @@ class AuthServiceProvider extends ServiceProvider
         Passport::personalAccessTokensExpireIn(now()->addMonths(6));
 
         Passport::tokensCan([
-            'view-user' => "View user information"
+            'view-user' => "Afficher les informations sur l'utilisateur"
         ]);
 
 

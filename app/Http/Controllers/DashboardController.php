@@ -20,7 +20,12 @@ class DashboardController extends Controller
     }
 
     public function viewEditUser() {
-        return view('user_profile');
+
+        return view('user_profile', [
+            'users' => User::where('name_society', Auth::user()->name_society)
+                            ->where('database', NULL) 
+                            ->get(),
+        ]);
     }
 
     public function editUser(Request $request) {
@@ -32,10 +37,15 @@ class DashboardController extends Controller
             'telephone' => $request->telephone != null ? $request->telephone : null,
             'password' => Hash::make($request->password),
         ]);
-        return redirect()->back();
+        return redirect()->back()->with('modifyProfil','Votre profil a été édité avec succès !');
     }
 
     public function viewUpdateAccess($id) {
+        
         return view('update_access', ['id' => $id]);
+    }
+    public function viewUpdateAccessBefore($email) {
+        
+        return view('update_access', ['email' => $email]);
     }
 }

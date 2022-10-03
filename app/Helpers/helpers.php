@@ -9,10 +9,26 @@ function hasProfile($id) {
 
     $user = User::where("id", $id)->first();
     if($user->database != null) {
+        return true;
+    }else {
+        return false;
+    }      
+}
+
+function hasRole($id) {
+
+    $user = User::where("id", $id)->first();
+    if($user->database != null) {
         $profile = 'Membre';
         return $profile;
     }else {
-        $profile = 'Administrateur';
+        if($user->name_society == 'professionnel') {
+            $profile = 'Professionnel';
+        }elseif($user->name_society == 'admin') {
+            $profile = 'Admin';
+        }else {
+            $profile = 'Administrateur';
+        }
         return $profile;
     }      
 }

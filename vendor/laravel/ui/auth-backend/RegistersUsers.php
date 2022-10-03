@@ -33,7 +33,7 @@ trait RegistersUsers
 
         event(new Registered($user = $this->create($request->all())));
 
-        $this->guard()->login($user);
+        // $this->guard()->login($user);
 
         if ($response = $this->registered($request, $user)) {
             return $response;
@@ -42,6 +42,7 @@ trait RegistersUsers
         return $request->wantsJson()
                     ? new JsonResponse([], 201)
                     : redirect($this->redirectPath());
+                    // redirect()->route('login')->with('status','Suivi bien ajouté !')
     }
 
     /**

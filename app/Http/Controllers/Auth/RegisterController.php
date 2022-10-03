@@ -50,12 +50,23 @@ class RegisterController extends Controller
      */
     protected function validator(array $data, Request $request)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'name_society' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        // dd($request->profil);
+        if($request->profil == "professionnel") {
+            return Validator::make($data, [
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+            ]);
+
+        }else{
+            return Validator::make($data, [
+                'name' => ['required', 'string', 'max:255'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+                'name_society' => ['required', 'string', 'max:255'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
+            ]);
+        }
+       
     }
 
     /**
@@ -67,15 +78,29 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        $user = User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'name_society' => strtolower($data['name_society']),
-            'password' => Hash::make($data['password']),
-        ]);
+        // dd($data['profil']);
+        if($data['profil'] == "professionnel") {
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'profil' => $data['profil'],
+                'name_society' => 'professionnel',
+                'password' => Hash::make($data['password']),
+            ]);
+            $newUser = User::where("email", $user->email)->first();
+            User::find($newUser->id)->role()->attach(4);
+        }else {
+            $user = User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'profil' => $data['profil'],
+                'name_society' => strtolower($data['name_society']),
+                'password' => Hash::make($data['password']),
+            ]);
+            $newUser = User::where("email", $user->email)->first();
+            User::find($newUser->id)->role()->attach(3);
 
-        $newUser = User::where("email", $user->email)->first();
-        User::find($newUser->id)->role()->attach(3);
+        }
 
         return $user;
     }

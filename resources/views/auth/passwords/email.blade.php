@@ -8,8 +8,8 @@
                 <div class="nk-content ">
                     <div class="nk-block nk-block-middle nk-auth-body  wide-xs">
                         <div class="brand-logo pb-4 text-center">
-                            <a href="html/index.html" class="logo-link">
-                                <img class="logo-dark logo-img logo-img-lg" src="{{asset('demo/images/logo-ixioxi.png')}}" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                            <a href="/" class="logo-link">
+                                <img class="logo-dark logo-img logo-img-lg" src="{{asset('demo/images/logo-ixioxi.png')}}" srcset="{{asset('demo/images/logo-ixioxi.png 2x')}}" alt="logo-dark">
                             </a>
                         </div>
 
@@ -17,9 +17,9 @@
                             <div class="card-inner card-inner-lg">
                                 <div class="nk-block-head">
                                     <div class="nk-block-head-content">
-                                        <h5 class="nk-block-title">Reset password</h5>
+                                        <h5 class="nk-block-title">Rénitialiser votre mot de passe</h5>
                                         <div class="nk-block-des">
-                                            <p>If you forgot your password, well, then we’ll email you instructions to reset your password.</p>
+                                            <p>Si vous avez oublié votre mot de passe, eh bien, nous vous enverrons par email les instructions pour le réinitialiser.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -46,11 +46,11 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-lg btn-primary btn-block">Send Reset Link</button>
+                                        <button type="submit" class="btn btn-lg btn-primary btn-block">Envoyer le lien de réinitialisation</button>
                                     </div>
                                 </form>
                                 <div class="form-note-s2 text-center pt-4">
-                                    <a href="/login"><strong>Return to login</strong></a>
+                                    <a href="/login"><strong>Retourner à la connexion</strong></a>
                                 </div>
                             </div>
                         </div>

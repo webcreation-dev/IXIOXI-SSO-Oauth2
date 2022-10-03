@@ -6,7 +6,7 @@ putting it in the $.plot.plugins array. For example:
 
 ```js
 function myCoolPluginInit(plot) {
-    plot.coolstring = "Hello!";
+    plot.coolstring = "Bonjour!";
 };
 
 $.plot.plugins.push({ init: myCoolPluginInit, options: { ... } });

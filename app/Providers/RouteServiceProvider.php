@@ -17,6 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
+    public const CHECKAUTH = '/login';
     public const HOME = '/home';
 
     /**

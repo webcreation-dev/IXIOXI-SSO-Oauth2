@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-
 
 class HomeController extends Controller
 {
@@ -23,9 +21,10 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('dashboard')->with('success', "Lien de rénitialisation envoyé avec succès");
+        // dd($request->session()->get('notCreateNow'));
+        return view('dashboard');
     }
 
 }

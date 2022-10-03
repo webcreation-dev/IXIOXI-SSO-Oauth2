@@ -37,6 +37,7 @@ class ComposerStaticInitc3263ae7fda989c20ce8c829e6a16771
         'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
         'b6b991a57620e2fb6b2f66f03fe9ddc2' => __DIR__ . '/..' . '/symfony/string/Resources/functions.php',
         'ed962a97bd972bc82007176b647d4e36' => __DIR__ . '/..' . '/facade/ignition/src/helpers.php',
+        '6b34c85f7b1ad6faa15aa12109e030f2' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/functions.php',
         'd21d43db5f6e840ee7b10744ec7fdf66' => __DIR__ . '/../..' . '/app/Helpers/helpers.php',
     );
 
@@ -96,6 +97,7 @@ class ComposerStaticInitc3263ae7fda989c20ce8c829e6a16771
         ),
         'R' => 
         array (
+            'RealRashid\\SweetAlert\\' => 22,
             'Ramsey\\Uuid\\' => 12,
             'Ramsey\\Collection\\' => 18,
         ),
@@ -341,6 +343,10 @@ class ComposerStaticInitc3263ae7fda989c20ce8c829e6a16771
         'Symfony\\Bridge\\PsrHttpMessage\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/psr-http-message-bridge',
+        ),
+        'RealRashid\\SweetAlert\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/realrashid/sweet-alert/src',
         ),
         'Ramsey\\Uuid\\' => 
         array (
@@ -598,6 +604,7 @@ class ComposerStaticInitc3263ae7fda989c20ce8c829e6a16771
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
+        'App\\Http\\Controllers\\DashboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/DashboardController.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\MailController' => __DIR__ . '/../..' . '/app/Http/Controllers/MailController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
@@ -4445,6 +4452,13 @@ class ComposerStaticInitc3263ae7fda989c20ce8c829e6a16771
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
         'Ramsey\\Uuid\\Validator\\GenericValidator' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/GenericValidator.php',
         'Ramsey\\Uuid\\Validator\\ValidatorInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/Validator/ValidatorInterface.php',
+        'RealRashid\\SweetAlert\\Console\\PublishCommand' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Console/PublishCommand.php',
+        'RealRashid\\SweetAlert\\Facades\\Alert' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Facades/Alert.php',
+        'RealRashid\\SweetAlert\\Storage\\AlertSessionStore' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Storage/AlertSessionStore.php',
+        'RealRashid\\SweetAlert\\Storage\\SessionStore' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Storage/SessionStore.php',
+        'RealRashid\\SweetAlert\\SweetAlertServiceProvider' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/SweetAlertServiceProvider.php',
+        'RealRashid\\SweetAlert\\ToSweetAlert' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/ToSweetAlert.php',
+        'RealRashid\\SweetAlert\\Toaster' => __DIR__ . '/..' . '/realrashid/sweet-alert/src/Toaster.php',
         'SebastianBergmann\\CliParser\\AmbiguousOptionException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/AmbiguousOptionException.php',
         'SebastianBergmann\\CliParser\\Exception' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/Exception.php',
         'SebastianBergmann\\CliParser\\OptionDoesNotAllowArgumentException' => __DIR__ . '/..' . '/sebastian/cli-parser/src/exceptions/OptionDoesNotAllowArgumentException.php',

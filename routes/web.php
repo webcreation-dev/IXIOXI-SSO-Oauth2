@@ -17,6 +17,17 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/subscribe/{email}', function (Request $request) {
+    return view('auth.register_user', ['email' => $request->email]);
+})->name('subscribe.user');
+
+Route::post("/register_user", [MailController::class, 'registerUser'])->name("register.user");
+
 Auth::routes(['verify' => true]);
 
 Route::middleware([
@@ -33,20 +44,10 @@ Route::middleware([
     
     Route::get("/users_list", [DashboardController::class, 'userList'])->name("user.list");
     Route::get("/view_update_access/{id}", [DashboardController::class, 'viewUpdateAccess'])->name("update.access");
+    Route::get("/view_update_access_before/{email}", [DashboardController::class, 'viewUpdateAccessBefore'])->name("update.access.before");
 });
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware([
-    // 'auth',
-// 'verified',
-]);
 
-Route::get('/subscribe/{email}', function (Request $request) {
-    return view('auth.register_user', ['email' => $request->email]);
-})->name('subscribe.user');
-
-Route::post("/register_user", [MailController::class, 'registerUser'])->name("register.user");
 
 
 

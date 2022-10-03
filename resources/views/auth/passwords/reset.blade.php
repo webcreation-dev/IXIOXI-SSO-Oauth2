@@ -8,17 +8,17 @@
                 <div class="nk-content ">
                     <div class="nk-block nk-block-middle nk-auth-body  wide-xs">
                         <div class="brand-logo pb-4 text-center">
-                            <a href="html/index.html" class="logo-link">
-                                <img class="logo-dark logo-img logo-img-lg" src="{{asset('demo/images/logo-ixioxi.png')}}" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                            <a href="/" class="logo-link">
+                                <img class="logo-dark logo-img logo-img-lg" src="{{asset('demo/images/logo-ixioxi.png')}}" srcset="{{asset('demo/images/logo-ixioxi.png 2x')}}" alt="logo-dark">
                             </a>
                         </div>
                         <div class="card card-bordered">
                             <div class="card-inner card-inner-lg">
                                 <div class="nk-block-head">
                                     <div class="nk-block-head-content">
-                                        <h5 class="nk-block-title">Reset password</h5>
+                                        <h5 class="nk-block-title">Rénitialiser votre mot de passe</h5>
                                         <div class="nk-block-des">
-                                            <p>Change your password now.</p>
+                                            <p>Changez votre mot de passe maintenant</p>
                                         </div>
                                     </div>
                                 </div>
@@ -39,7 +39,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="password">Password</label>
+                                        <label class="form-label" for="password">Mot de passe</label>
                                         <div class="form-control-wrap">
                                             <a href="#" class="form-icon form-icon-right passcode-switch lg" data-target="password">
                                                 <em class="passcode-icon icon-show icon ni ni-eye"></em>
@@ -56,9 +56,9 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="form-label" for="password">Confirm Password</label>
+                                        <label class="form-label" for="password">Confirmer le Mot de passe</label>
                                         <div class="form-control-wrap">
-                                            <a href="#" class="form-icon form-icon-right passcode-switch lg" data-target="password">
+                                            <a href="#" class="form-icon form-icon-right passcode-switch lg" data-target="password-confirm">
                                                 <em class="passcode-icon icon-show icon ni ni-eye"></em>
                                                 <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
                                             </a>
@@ -67,7 +67,7 @@
                                     </div>
                                     
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
+                                        <button type="submit" class="btn btn-lg btn-primary btn-block">Enregistrer</button>
                                     </div>
                                 </form>
                                

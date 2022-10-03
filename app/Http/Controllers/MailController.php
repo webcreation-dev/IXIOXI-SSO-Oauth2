@@ -20,43 +20,48 @@ class MailController extends Controller
 
     public function updateAccess(Request $request) {
 
-        if($request->email != Auth::user()->email){
-            $updateUser = User::where("id", $request->id)->first();
-            $checkEmail = ManageUser::where("email", $request->email)->first();
+        if($request->id != Auth::user()->id) {
 
-            if ($updateUser != null) {
-                dd(1);
-                $roleUser = UserRole::where("user_id", $updateUser->id)->skip(0)->take(1)->first();
-                $roleUser->role_id = $request->crm ? '1' : '0';
-                $roleUser->save();
-                $roleUser = UserRole::where("user_id", $updateUser->id)->skip(1)->take(1)->first();
-                $roleUser->role_id = $request->cachet_express ? '2' : '0';
-                $roleUser->save();
-            }else {
-                $url = URL::signedRoute('subscribe.user', [
-                    'email' => $request->email,
-                ]);
-                Mail::to($request->email)->send(new SignUp($url));
 
-                $checkEmail->update([
-                    'email' => $request->email,
-                    'name_society' => Auth::user()->name_society,
-                    'crm' => $request->crm ? '1' : '0',
-                    'cachet_express' => $request->cachet_express ? '2' : '0',
-                ]);
+            if($request->email != Auth::user()->email){
+                $updateUser = User::where("id", $request->id)->first();
+                $checkEmail = ManageUser::where("email", $request->email)->first();
+
+                if ($updateUser != null) {
+                    $roleUser = UserRole::where("user_id", $updateUser->id)->skip(0)->take(1)->first();
+                    $roleUser->role_id = $request->crm ? '1' : '0';
+                    $roleUser->save();
+                    $roleUser = UserRole::where("user_id", $updateUser->id)->skip(1)->take(1)->first();
+                    $roleUser->role_id = $request->cachet_express ? '2' : '0';
+                    $roleUser->save();
+                }else {
+                    
+
+                    $checkEmail->update([
+                        'email' => $request->email,
+                        'name_society' => Auth::user()->name_society,
+                        'crm' => $request->crm ? '1' : '0',
+                        'cachet_express' => $request->cachet_express ? '2' : '0',
+                    ]);
+                }
             }
+
+            return redirect(route('user.list'))->with('updateAccess','Les accès de cet utilisateur ont été mis à jour !');
+        }else {
+
+            return redirect(route('user.list'))->with('notModifyAccess',"Les accès de l'administrateur ne peut etre mis à jour !");
         }
-        return redirect(route('dashboard'));
 
     }
 
     public function sendMail(Request $request)
     {
-        if($request->email != Auth::user()->email){
+        $user = User::where("email", $request->email)->first();
+
+        if( $user === null ){
             $checkEmail = ManageUser::where("email", $request->email)->first();
             
             if( $checkEmail === null ) {
-
                 $url = URL::signedRoute('subscribe.user', [
                     'email' => $request->email,
                 ]);
@@ -69,8 +74,10 @@ class MailController extends Controller
                 ]);
 
             }
+            return redirect(route('user.list'))->with('sendLinkRegister',"Lien d'inscription envoyé avec succès !");
+        }else {
+            return redirect(route('user.list'))->with('notSendLinkRegister',"Ce mail est déjà inscrit sur la plateforme");
         }    
-        return redirect(route('dashboard'));
     }
 
     public function registerUser(Request $request) {
@@ -83,6 +90,7 @@ class MailController extends Controller
                 'name' => $request->name, 
                 'email' => $newUser->email,
                 'name_society' => $newUser->name_society,
+                'profil' => 'entreprise',
                 'database' => str_replace(' ', '_', $newUser->name_society), 
                 'password' => Hash::make($request->password),
             ]);
@@ -108,8 +116,8 @@ class MailController extends Controller
             $user = $checkUser;
         }
 
-        Auth::login($user);
+        // Auth::login($user);
         
-        return redirect(route("dashboard"));
+        return redirect("/login");
     }
 }

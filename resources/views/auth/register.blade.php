@@ -9,24 +9,24 @@
                 <div class="nk-content ">
                     <div class="nk-block nk-block-middle nk-auth-body  wide-xs">
                         <div class="brand-logo pb-4 text-center">
-                            <a href="html/index.html" class="logo-link">
-                                <img class="logo-dark logo-img logo-img-lg" src="{{asset('demo/images/logo-ixioxi.png')}}" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+                            <a href="/" class="logo-link">
+                                <img class="logo-dark logo-img logo-img-lg" src="{{asset('demo/images/logo-ixioxi.png')}}" srcset="{{asset('demo/images/logo-ixioxi.png 2x')}}" alt="logo-dark">
                             </a>
                         </div>
                         <div class="card card-bordered">
                             <div class="card-inner card-inner-lg">
                                 <div class="nk-block-head">
                                     <div class="nk-block-head-content">
-                                        <h4 class="nk-block-title">Register</h4>
+                                        <h4 class="nk-block-title">Inscription</h4>
                                         <div class="nk-block-des">
-                                            <p>Create New Dashlite Account</p>
+                                            <p>Créer un nouveau compte IXIOXI</p>
                                         </div>
                                     </div>
                                 </div>
                                 <form method="POST" action="{{ route('register') }}">
                                     @csrf
                                     <div class="form-group">
-                                        <label class="form-label" for="name">Name</label>
+                                        <label class="form-label" for="name">Nom</label>
                                         <div class="form-control-wrap">
                                             <input id="name" type="text" class="form-control form-control-lg @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
@@ -37,10 +37,19 @@
                                             @enderror
                                         </div>
                                     </div>
+
                                     <div class="form-group">
-                                        <label class="form-label" for="name">Society</label>
+                                        
+                                        <label for="">Entreprise</label>
+                                        <input type="radio" name="profil" value="entreprise" id="entreprise" checked>
+                                        <label for="">Professionnel</label>
+                                        <input type="radio" name="profil" value="professionnel"  id="professionnel">
+                                    </div>
+
+                                    <div class="form-group society">
+                                        <label class="form-label" for="name">Société</label>
                                         <div class="form-control-wrap">
-                                            <input id="name_society" type="text" class="form-control form-control-lg @error('name_society') is-invalid @enderror" name="name_society" value="{{ old('name_society') }}" required autocomplete="name_society" autofocus>
+                                            <input id="name_society" type="text" class="form-control form-control-lg @error('name_society') is-invalid @enderror" name="name_society" value="{{ old('name_society') }}" autocomplete="name_society" autofocus>
 
                                             @error('name_society')
                                                 <span class="invalid-feedback" role="alert">
@@ -62,7 +71,7 @@
                                         </div>
                                     </div>
                                     <div class="form-group">
-                                        <label class="form-label" for="password">Password</label>
+                                        <label class="form-label" for="password">Mot de passe</label>
                                         <div class="form-control-wrap">
                                             <a href="#" class="form-icon form-icon-right passcode-switch lg" data-target="password">
                                                 <em class="passcode-icon icon-show icon ni ni-eye"></em>
@@ -79,9 +88,9 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label class="form-label" for="password">Confirm Password</label>
+                                        <label class="form-label" for="password">Confirmer le mot de passe</label>
                                         <div class="form-control-wrap">
-                                            <a href="#" class="form-icon form-icon-right passcode-switch lg" data-target="password">
+                                            <a href="#" class="form-icon form-icon-right passcode-switch lg" data-target="password-confirm">
                                                 <em class="passcode-icon icon-show icon ni ni-eye"></em>
                                                 <em class="passcode-icon icon-hide icon ni ni-eye-off"></em>
                                             </a>
@@ -90,10 +99,10 @@
                                     </div>
                                     
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-lg btn-primary btn-block">Register</button>
+                                        <button type="submit" class="btn btn-lg btn-primary btn-block">S'inscrire</button>
                                     </div>
                                 </form>
-                                <div class="form-note-s2 text-center pt-4"> Already have an account? <a href="/login"><strong>Sign in instead</strong></a>
+                                <div class="form-note-s2 text-center pt-4"> Vous avez déjà un compte ? <a href="/login"><strong>Se connecter</strong></a>
                                 </div>
                             </div>
                         </div>
